@@ -1,0 +1,168 @@
+https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
+
+
+This tuto guide you step by step to make you understand how to work react using typescript  to build a small project 
+which will give necessary competencies to become pro in react.
+
+(https://reactjs.org/)
+(https://www.typescriptlang.org/)
+
+First of all we will check the requirements to develop react app.
+
+Requirements:
+
+- Nodejs (https://nodejs.org/en/)
+- Git (https://git-scm.com/)
+- Visual Studio Code (https://code.visualstudio.com/)
+
+We verify now that everything are installed correctlly:
+Open terminal command the following commands:
+
+Check version of nodejs and npm
+- node -v
+- npm -v
+
+Note: 
+If the node package manager (npm) is not installed then install it:
+npm install --global npm or npm install --g npm
+(https://docs.npmjs.com/)
+
+to uninstall a package the command is :
+npm uninstall -g package_name
+or 
+npm uninstall --save-dev package_name
+npm uninstall --save package_name
+
+
+argument : --g tells to install the package global
+
+
+
+Check version of nodejs
+- git --version
+
+
+
+
+Let's start now, we have installed the developpment tool and we are going to create our new project:
+
+Install the react application developpment package Create-React-App
+npm install -g create-react-app
+(https://create-react-app.dev/)
+
+This tool will help us to create the react app structure.
+
+Open terminal and go to to your prefered workspace and follow the steps below:
+
+npx create-react-app react-typescript-app --typescript
+cd react-typescript-app
+
+note: argument --typescript tells to 
+
+the command npx execute npm package binairies, in our case it execute create-react-app library by 
+
+The comand generated the following structure :
+
+- .git
+- node_modules
+- public
+--- favicon.ico
+--- index.html
+--- logo192.png
+--- logo512.png
+--- manifest.json
+--- robots.txt
+- src
+--- App.css
+--- App.test.tsx
+--- App.tsx
+--- index.css
+--- index.tsx
+--- logo.svg
+--- react-app-env.d.ts
+--- serviceWorker.ts
+- .gitignore
+- package.json
+- package-lock.json
+- README.md
+- tsconfig.json
+
+Note:
+
+File extension
+-------------
+.ts are regular typescript file and .tsx are typescript syntax extension file
+
+tsconfig.json
+--------
+
+TODO: Explain the structure
+
+
+Extra packages:
+------------
+
+
+Installing TSLint-React:
+npm install --save-dev tslint tslint-react
+
+tslint --init
+
+
+Note: 
+argument --save is used to save the package into "dependencies" section
+and --save-dev save package in "devDependencies"
+I will explain later, for now keep going on
+
+
+
+The tool tslint checks typescript code for readability, maintainability, and functionality errors
+(https://palantir.github.io/tslint/)
+
+tslint-react: Lint rules related to React & JSX for TSLint.
+(https://github.com/palantir/tslint-react)
+
+
+We will add also Prettier:
+Prettier is a fully automatic �style guide� worth adopting.
+npm install prettier --save-dev
+
+(https://prettier.io/docs/en/install.html)
+
+
+I use boostrap to create the user interface:
+npm install --save bootstrap
+
+
+
+Launch app:
+-------------
+Open the app in vs code and open a new terminal by clicking on menu "Terminal->New terminal"
+So you can close your favorite terminal, we will vscode terminal to manage app.
+
+Type the command:
+ npm start 
+ to launch the application
+ 
+ If everything is going well, you will see the page with logo and theh text "Edit src/App.tsx and save to reload."
+ We will change the text. For that open the file "App.tsx" in src folder
+ Delete the text and add this "My first react app using typescript." and save.
+
+ The page is refreshed automatically.
+
+
+ Now we will create a CRUD component.
+
+Create a new folder "components" in "/src" folder
+
++-- /src
+|   +-- /components
+
+
+
+
+-----------------------------------------
+usefull links :
+https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
+
+https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
