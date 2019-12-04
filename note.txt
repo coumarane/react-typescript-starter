@@ -1,7 +1,26 @@
-https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
+Initiation to Reactjs
+**********************
+----------------------
 
 
-This tuto guide you step by step to make you understand how to work react using typescript  to build a small project 
+What is Reactjs:
+*******************
+
+Reactjs is a javascript libray developped by facebook since 2013. The philosophy of this library is to make build 
+an  SPA (Single Page Application) application.
+It manage only a user interface of the application.
+
+
+Who use React:
+-----------------
+Facebook, Netflix, Instagram, Whatsapp, Airbnb etc..
+
+******************
+
+Start:
+******************
+
+This tuto guide you step by step to make you understand how to work react using typescript to build a small project 
 which will give necessary competencies to become pro in react.
 
 (https://reactjs.org/)
@@ -24,14 +43,14 @@ Check version of nodejs and npm
 
 Note: 
 If the node package manager (npm) is not installed then install it:
-npm install --global npm or npm install --g npm
+$ npm install --global npm or npm install --g npm
 (https://docs.npmjs.com/)
 
 to uninstall a package the command is :
-npm uninstall -g package_name
+$ npm uninstall -g package_name
 or 
-npm uninstall --save-dev package_name
-npm uninstall --save package_name
+$ npm uninstall --save-dev package_name
+$ npm uninstall --save package_name
 
 
 argument : --g tells to install the package global
@@ -47,17 +66,20 @@ Check version of nodejs
 Let's start now, we have installed the developpment tool and we are going to create our new project:
 
 Install the react application developpment package Create-React-App
-npm install -g create-react-app
+$ npm install -g create-react-app
 (https://create-react-app.dev/)
 
 This tool will help us to create the react app structure.
 
 Open terminal and go to to your prefered workspace and follow the steps below:
 
-npx create-react-app react-typescript-app --typescript
-cd react-typescript-app
+$ npx create-react-app react-typescript-app --typescript
 
-note: argument --typescript tells to 
+$ cd react-typescript-app
+
+note:
+/ react-typescript-app is name of the project 
+/ argument --typescript used to work with Typescript
 
 the command npx execute npm package binairies, in our case it execute create-react-app library by 
 
@@ -87,26 +109,98 @@ The comand generated the following structure :
 - README.md
 - tsconfig.json
 
-Note:
-
-File extension
--------------
-.ts are regular typescript file and .tsx are typescript syntax extension file
-
-tsconfig.json
---------
+Exlanantion of each part:
 
 TODO: Explain the structure
 
+* tsconfig.json declare the root of typescript project and specifies compiler parameters to compile the project.
+* public is the folder in where the static file reside such as the index.html, the following tag div in the file
+    `<div id="root"></div>` is a Reactjs entry point
+* src is a folder that will hold all app code: component, style, images etc...
+    the file `index.tsx` in the src foler is a react main program 
+    the main component is executed using this code `ReactDOM.render(<App />, document.getElementById('root'));`
+    Everything in react is component and only one the root component here is App.
+
+Note :
+.ts are regular typescript file and .tsx are typescript syntax extension file
+All the component we will create in this tutorial will have .tsx as extension
+
+
+
+
+Inportant packages:
+------------
+Router:
+We need a library to manage page routing.
+$ npm install --save react-router-dom 
+
+# As we use typescript in our project we need also the @type package for react-router-dom. 
+We can say that @types are the interface between Javascript and Typescript
+# We save @types in devDependencies
+$ npm install --save-dev @types/react-router-dom
+(http://definitelytyped.org/)
+
+
+(https://reacttraining.com/react-router/web/guides/quick-start)
+
+Bootstrap:
+Boostrap is used to create the user interface:
+$ npm install --save bootstrap
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+(https://getbootstrap.com/)
+
+icon: 
+$ npm install --save font-awesome
+
+(https://fontawesome.com/icons?d=gallery)
+
+note: 
+to import the css use following
+import 'font-awesome/css/font-awesome.min.css';
 
 Extra packages:
 ------------
 
 
-Installing TSLint-React:
-npm install --save-dev tslint tslint-react
 
-tslint --init
+Installing TSLint-React:
+$ npm install --save-dev tslint tslint-react
+
+Type the following command to generate a tslint.json file with default options.
+$ npx tslint --init
+
+* tslint.json is the linter settings to be used by TSLint
+
+Replace this file with the following:
+
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint-react"
+    ],
+    "jsRules": {
+    },
+    "rules": {
+        "member-access": false,
+        "ordered-imports": false,
+        "quotemark": false,
+        "no-console": false,
+        "semicolon": false,
+        "jsx-no-lambda": false
+    },
+    "rulesDirectory": [
+    ],
+    "linterOptions": {
+        "exclude": [
+            "config/**/*.js",
+            "node_modules/**/*.ts"
+       ]
+   }
+}
+
+
 
 
 Note: 
@@ -130,8 +224,7 @@ npm install prettier --save-dev
 (https://prettier.io/docs/en/install.html)
 
 
-I use boostrap to create the user interface:
-npm install --save bootstrap
+
 
 
 
@@ -141,24 +234,42 @@ Open the app in vs code and open a new terminal by clicking on menu "Terminal->N
 So you can close your favorite terminal, we will vscode terminal to manage app.
 
 Type the command:
- npm start 
- to launch the application
- 
- If everything is going well, you will see the page with logo and theh text "Edit src/App.tsx and save to reload."
- We will change the text. For that open the file "App.tsx" in src folder
- Delete the text and add this "My first react app using typescript." and save.
+$ npm start 
+to launch the application
 
- The page is refreshed automatically.
+If everything is going well, you will see the page with logo and theh text "Edit src/App.tsx and save to reload."
+We will change the text. For that open the file "App.tsx" in src folder
+Delete the text and add this "My first react app using typescript." and save.
+
+The page is refreshed automatically.
 
 
- Now we will create a CRUD component.
+Now we will create a CRUD component.
 
 Create a new folder "components" in "/src" folder
 
 +-- /src
 |   +-- /components
 
+Delete code in App.tsx and we will create a class component instead, you can delete the other App.test.tsx and App.css files:
 
+we will import the following files to build a beautify user interface:
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
+
+TODO: code here...
+
+(https://getbootstrap.com/docs/4.4/examples/dashboard/)
+
+
+Note:
+component class must implement a render method which is used by reactjs to render the UI in the broswer
+
+Reactjs Lifecyle :
+-----------------
+- init
+- update
+- destruct
 
 
 -----------------------------------------

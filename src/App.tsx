@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { BrowserRouter, Router } from "react-router-dom";
+import { createBrowserHistory } from "history";
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          My first react app using typescript.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "bootstrap/dist/css/bootstrap.min.css";
+import "font-awesome/css/font-awesome.min.css";
+import "./styles/dashboard.css";
+import "./styles/common.css";
+import { AppRoutes } from "./AppRoutes";
+
+const history = createBrowserHistory();
+
+class App extends React.Component<{}, {}> {
+
+  render() {
+    return (
+      <>
+        <BrowserRouter>
+          <Router history={history}>
+            <AppRoutes />
+          </Router>
+        </BrowserRouter>
+      </>
+    );
+  }
 }
 
 export default App;

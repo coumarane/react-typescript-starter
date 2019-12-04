@@ -1,0 +1,32 @@
+.datatable-toolbar-actions {
+  padding: "15px 0px 10px";
+}
+
+.btn-grey {
+  border-color: #acb5c3;
+  color: #fafcfb;
+  background-color: #acb5c3;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-blue {
+  border-color: #007bff;
+  color: #fafcfb;
+  background-color: #007bffa6;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-navy {
+  border-color: #354860;
+  color: #fafcfb;
+  background-color: #354860;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-circle {
+  border-radius: 25px !important;
+  overflow: hidden;
+}

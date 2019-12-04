@@ -61,11 +61,6 @@ class DatatableExample extends React.Component<IOwnProps, {}> {
                   { link: "/contact/:id", icon: "pageview" }
                 ]}
               >
-                <DatatableColumn
-                  headerTitle="#"
-                  dataField="Id"
-                  columnType={{ type: "checkbox", name: "SelectedIds" }}
-                />
                 <DatatableColumn headerTitle="Id" dataField="Id" isKey={true} />
                 <DatatableColumn headerTitle="Parent Id" dataField="ParentId" />
                 <DatatableColumn headerTitle="Type" dataField="Type" />

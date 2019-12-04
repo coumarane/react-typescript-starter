@@ -1,13 +1,9 @@
-import { ITooltipItemProps } from "../../tooltip-item/TooltipItem";
-
 export interface IActions {
   id?: string;
   label?: string;
   icon: string;
   link?: string;
   onClickEvent?: (args: any) => (e: React.MouseEvent) => void;
-
-  tooltip?: ITooltipItemProps;
 }
 
 export interface IColumnType {

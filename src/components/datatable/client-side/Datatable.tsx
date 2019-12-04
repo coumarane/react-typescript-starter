@@ -3,7 +3,6 @@ import { DatatableHeader } from './DatatableHeader';
 import { IDatatableColumnDefs, IActions } from './DatatableModels';
 import { Link } from 'react-router-dom';
 import PaginationComponent from './DatatablePagination';
-import TooltipItem from '../../tooltip-item/TooltipItem';
 import './Datatable.css';
 
 interface IDatatableState {
@@ -290,7 +289,6 @@ class Datatable extends React.Component<DatatableUnionProps, IDatatableState> {
           <td>
             {actions &&
               actions.map((el, index) => {
-                const itemId = el.tooltip && el.tooltip.id;
                 // const link = `${el.link}/${item[identityCol]}`
                 // console.log(`link: ${el.link.replace(pattern, item[identityCol])}`)
                 let actionContent: any;
@@ -301,7 +299,6 @@ class Datatable extends React.Component<DatatableUnionProps, IDatatableState> {
                     <Link
                       to={link}
                       className="btn btn-sm btn-flat pull-left action-icon"
-                      id={itemId}
                     >
                       <i
                         className="material-icons"
@@ -319,7 +316,6 @@ class Datatable extends React.Component<DatatableUnionProps, IDatatableState> {
                       to={''}
                       onClick={el.onClickEvent(item[identityCol])}
                       className="btn btn-sm btn-flat pull-left action-icon"
-                      id={itemId}
                     >
                       <i
                         className="material-icons"
@@ -336,14 +332,6 @@ class Datatable extends React.Component<DatatableUnionProps, IDatatableState> {
                     {actionContent}
 
                     {index === actions.length - 1 ? '' : '|'}
-
-                    {itemId && (
-                      <TooltipItem
-                        id={itemId}
-                        text={el.tooltip!.text}
-                        key={itemId}
-                      />
-                    )}
                   </React.Fragment>
                 );
               })}
