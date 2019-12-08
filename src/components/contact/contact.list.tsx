@@ -3,14 +3,14 @@ import { IContact } from "../../models/contact";
 
 interface IOwnProps {
  datas: IContact[];
+ handleDelete: (id: number) => (e: React.MouseEvent) => void;
+ handleEdit: (id: number) => (e: React.MouseEvent) =>  void;
 }
 
 const ContactList: React.FunctionComponent<IOwnProps> = (props) => {
-  // const [contacts, setContacts] = React.useState(datas);
 
   return (
     <>
-     
       <h2>Contacts</h2>
       <div className="table-responsive">
         <table className="table table-striped table-sm">
@@ -34,7 +34,9 @@ const ContactList: React.FunctionComponent<IOwnProps> = (props) => {
                       <td>{item.name}</td>
                       <td>{item.email}</td>
                       <td>{item.dateOfBirth}</td>
-                      <th>Delete</th>
+                      <th>
+                        <i className="fa fa-edit" onClick={props.handleEdit(item.id)} style={{color: '##0d903c', cursor: 'pointer'}}>&nbsp;</i> | <i className="fa fa-trash" onClick={props.handleDelete(item.id)} style={{color: 'red', cursor: 'pointer'}}>&nbsp;</i>
+                        </th>
                     </tr>
                   </React.Fragment>
                 );
