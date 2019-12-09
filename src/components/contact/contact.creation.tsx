@@ -17,6 +17,14 @@ const ContactCreation: React.FunctionComponent<IOwnProps> = (
   };
   const [contact, setContact] = React.useState(initialContcatState);
 
+  // Similar to componentDidMount, componentDidUpdate and componentWillUnmount
+  React.useEffect(() => {
+    // Update document title via browser API
+    if (contact.name !== "") {
+      document.title = `The entered name is ${contact.name}`;
+    }
+  }, [contact.name]); // Execute the effect only if contact.name has changed
+
   const handleReset = () => {
     setContact(initialContcatState);
   }

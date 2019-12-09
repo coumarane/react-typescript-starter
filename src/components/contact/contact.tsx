@@ -18,11 +18,11 @@ class Contact extends React.Component<IUnionProps, IOwnState> {
     super(props);
 
     const initialContcatState: IContact = {
-        id: 0,
-        name: "",
-        email: "",
-        dateOfBirth: ""
-      };
+      id: 0,
+      name: "",
+      email: "",
+      dateOfBirth: ""
+    };
 
     // const [contacts, setContacts] = React.useState({});
     this.state = {
@@ -33,11 +33,11 @@ class Contact extends React.Component<IUnionProps, IOwnState> {
   }
 
   componentDidMount() {
-    this.loadContacts()
+    this.loadContacts();
   }
 
   render() {
-    const { showForm  } = this.state
+    const { showForm } = this.state;
     return (
       <>
         <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
@@ -51,14 +51,12 @@ class Contact extends React.Component<IUnionProps, IOwnState> {
             <nav className="col-md-2 d-none d-md-block bg-light sidebar">
               <div className="sidebar-sticky">
                 <ul className="nav flex-column">
-
                   <li className="nav-item">
                     <a className="nav-link active" href="/">
                       <i className="fa fa-users">{``}</i>Users{` `}
                       <span className="sr-only">(current)</span>
                     </a>
                   </li>
-
                 </ul>
               </div>
             </nav>
@@ -76,7 +74,7 @@ class Contact extends React.Component<IUnionProps, IOwnState> {
             </div>
 
             <div className="row">
-              <div className="col-md-12" style={{marginBottom: '10px'}}>
+              <div className="col-md-12" style={{ marginBottom: "10px" }}>
                 <button
                   className="btn btn-primary"
                   onClick={this.handleShowForm}
@@ -85,80 +83,85 @@ class Contact extends React.Component<IUnionProps, IOwnState> {
                 </button>
               </div>
             </div>
-            {
-              showForm && 
-                <ContactCreation 
-                  handleSaveContact={this.handleSave} 
-                  handleCancel={this.handleHideForm}
-                />
-            }
-            <ContactList 
-                datas={this.state.contacts} 
-                handleDelete={this.handleDelete}
-                handleEdit={this.handleEdit}
+            {showForm && (
+              <ContactCreation
+                handleSaveContact={this.handleSave}
+                handleCancel={this.handleHideForm}
+              />
+            )}
+            <ContactList
+              datas={this.state.contacts}
+              handleDelete={this.handleDelete}
+              handleEdit={this.handleEdit}
             />
-            <div className="row">
-              <div className="col-md-12" style={{marginBottom: '10px'}}>
-                <button
-                  className="btn btn-warning"
-                  onClick={this.handleDeleteAll}
-                >
-                  Delete all
-                </button>
-              </div>
-            </div>
+            {this.renderDeleteAllButton()}
           </div>
         </div>
       </>
     );
   }
 
+  renderDeleteAllButton = () => {
+    const { contacts } = this.state
+    if (contacts && contacts.length > 0) {
+      return (
+        <>
+          <div className="row">
+            <div className="col-md-12" style={{ marginBottom: "10px" }}>
+              <button className="btn btn-warning" onClick={this.handleDeleteAll}>
+                Delete all
+              </button>
+            </div>
+          </div>
+        </>
+      );
+    } else {
+      return null
+    }
+  };
+
   handleHideForm = () => {
     this.setState({
       showForm: false
-    })
-  }
+    });
+  };
 
   handleShowForm = (e: React.MouseEvent) => {
     e.preventDefault();
     // this.props.history.push("/contact/new");
     this.setState({
       showForm: true
-    })
+    });
   };
 
-
   loadContacts = () => {
-    const contacts = ContactLocalStorageService.fetchContacts()
-    if (contacts) {
-      this.setState({contacts})
-    }
-  }
+    const dbcontacts = ContactLocalStorageService.fetchContacts();
+    this.setState({ contacts: dbcontacts! });
+  };
 
   handleSave = (contact: IContact) => {
-    ContactLocalStorageService.saveContact(contact)
-    this.handleHideForm()
-    this.loadContacts()
-  }
+    ContactLocalStorageService.saveContact(contact);
+    // this.handleHideForm();
+    this.loadContacts();
+  };
 
   handleDelete = (id: number) => (e: React.MouseEvent) => {
-    ContactLocalStorageService.deleteById(id)
-    this.loadContacts()
-  }
+    ContactLocalStorageService.deleteById(id);
+    this.loadContacts();
+  };
 
   handleEdit = (id: number) => (e: React.MouseEvent) => {
-    const contact = ContactLocalStorageService.getById(id)
+    const contact = ContactLocalStorageService.getById(id);
     if (contact) {
-        // console.log(`handleEdit=>contact: ${JSON.stringify(contact)}`)
-        this.setState({updateContact: contact})
+      // console.log(`handleEdit=>contact: ${JSON.stringify(contact)}`)
+      this.setState({ updateContact: contact });
     }
-  }
-  
-  handleDeleteAll = () => {
-    ContactLocalStorageService.clearData()
-    this.loadContacts()
-  }
+  };
 
+  handleDeleteAll = () => {
+    ContactLocalStorageService.clearData();
+    this.loadContacts();
+  };
 }
 
 export default Contact;

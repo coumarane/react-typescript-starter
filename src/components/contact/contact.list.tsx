@@ -11,7 +11,7 @@ const ContactList: React.FunctionComponent<IOwnProps> = (props) => {
 
   return (
     <>
-      <h2>Contacts</h2>
+      <h6>Contact list</h6>
       <div className="table-responsive">
         <table className="table table-striped table-sm">
           <thead>
@@ -20,7 +20,7 @@ const ContactList: React.FunctionComponent<IOwnProps> = (props) => {
               <th>Name</th>
               <th>Email</th>
               <th>Date of birth</th>
-              <th>Action</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
