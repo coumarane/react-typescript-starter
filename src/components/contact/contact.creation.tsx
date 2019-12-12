@@ -15,6 +15,8 @@ const ContactCreation: React.FunctionComponent<IOwnProps> = (
     email: "",
     dateOfBirth: ""
   };
+
+  // contact is a state variable
   const [contact, setContact] = React.useState(initialContcatState);
 
   // Similar to componentDidMount, componentDidUpdate and componentWillUnmount
@@ -41,8 +43,7 @@ const ContactCreation: React.FunctionComponent<IOwnProps> = (
 
   /**
    * Common input change event
-   * When enter input change event raise
-   * This method store input value in model's property
+   * When the field is entered an event is raised and update the state
    */
   const handleInputChange = (
     e: React.SyntheticEvent<HTMLInputElement | HTMLButtonElement>

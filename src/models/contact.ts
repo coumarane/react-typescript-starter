@@ -1,6 +1,6 @@
 export interface IContact {
-    id: number;
-    name: string;
-    email: string;
-    dateOfBirth: string;
+    id: number; // Identifier uniq
+    name: string; // Name or fullname
+    email: string; // Email
+    dateOfBirth: string; // Date fo birth
 }
