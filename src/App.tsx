@@ -5,7 +5,6 @@ import { createBrowserHistory } from "history";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import "./styles/dashboard.css";
-import "./styles/common.css";
 import { AppRoutes } from "./AppRoutes";
 
 const history = createBrowserHistory();
