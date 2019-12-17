@@ -39,6 +39,21 @@ class ContactLocalStorage {
     this.saveContacts(contacts)
   };
 
+  updateContact = (id: number, contact: IContact) => {
+    let dbcontacts = this.fetchContacts();
+    if (dbcontacts) {
+      let existingContact = dbcontacts.find(x => x.id === id)
+      const index = dbcontacts.findIndex(x => x.id === id)
+      if (existingContact) {
+        existingContact.name = contact.name
+        existingContact.email = contact.email
+        existingContact.dateOfBirth = contact.dateOfBirth
+        dbcontacts[index] = existingContact
+      }
+      this.saveContacts(dbcontacts)
+    }
+  };
+
   deleteById = (id: number) => {
     const dbcontacts = this.fetchContacts()
     if (dbcontacts) {

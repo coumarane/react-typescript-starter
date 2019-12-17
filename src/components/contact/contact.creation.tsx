@@ -3,7 +3,7 @@ import { IContact } from "../../models/contact";
 
 interface IOwnProps {
   handleSaveContact: (contact: IContact) => void;
-  handleCancel: () => void;
+  editContact?: IContact;
 }
 
 const ContactCreation: React.FunctionComponent<IOwnProps> = (
@@ -15,7 +15,7 @@ const ContactCreation: React.FunctionComponent<IOwnProps> = (
     email: "",
     dateOfBirth: ""
   };
-
+  
   // contact is a state variable
   const [contact, setContact] = React.useState(initialContcatState);
 
@@ -26,6 +26,12 @@ const ContactCreation: React.FunctionComponent<IOwnProps> = (
       document.title = `The entered name is ${contact.name}`;
     }
   }, [contact.name]); // Execute the effect only if contact.name has changed
+
+  React.useEffect(() => {
+    if (props.editContact) {
+      setContact(props.editContact!)
+    }
+  }, [props.editContact])
 
   const handleReset = () => {
     setContact(initialContcatState);
@@ -108,9 +114,9 @@ const ContactCreation: React.FunctionComponent<IOwnProps> = (
 
               </div>
 
-              <input className="btn btn-outline-primary" type="submit" value="Save" />{` `}
+              {contact.id > 0 && <input className="btn btn-outline-danger" type="submit" value="Update" />}{` `}
+              {contact.id <= 0 && <input className="btn btn-outline-primary" type="submit" value="Save" />}{` `}
               <input className="btn btn-outline-warning" type="button" value="Reset" onClick={handleReset} />{` `}
-              <input className="btn btn-outline-danger" type="button" value="Cancel" onClick={props.handleCancel} />
             </div>
           </div>
         </div>

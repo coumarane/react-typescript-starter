@@ -7,8 +7,7 @@ import ContactLocalStorageService from "../../services/contactLocalStorageServic
 
 interface IOwnState {
   contacts: IContact[];
-  updateContact: IContact;
-  showForm: boolean;
+  editContact: IContact;
 }
 
 type IUnionProps = RouteComponentProps<any>;
@@ -27,8 +26,7 @@ class Contact extends React.Component<IUnionProps, IOwnState> {
     // const [contacts, setContacts] = React.useState({});
     this.state = {
       contacts: [],
-      showForm: false,
-      updateContact: initialContcatState
+      editContact: initialContcatState
     };
   }
 
@@ -37,7 +35,6 @@ class Contact extends React.Component<IUnionProps, IOwnState> {
   }
 
   render() {
-    const { showForm } = this.state;
     return (
       <>
         <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
@@ -72,28 +69,19 @@ class Contact extends React.Component<IUnionProps, IOwnState> {
             <div className="row" style={{ paddingTop: "50px" }}>
               <div className="col-md-12">{``}</div>
             </div>
-
-            <div className="row">
-              <div className="col-md-12" style={{ marginBottom: "10px" }}>
-                <button
-                  className="btn btn-primary"
-                  onClick={this.handleShowForm}
-                >
-                  Add contact
-                </button>
-              </div>
-            </div>
-            {showForm && (
-              <ContactCreation
-                handleSaveContact={this.handleSave}
-                handleCancel={this.handleHideForm}
-              />
-            )}
+  
+            
+            <ContactCreation
+              handleSaveContact={this.handleCreateOrUpdate}
+              editContact={this.state.editContact}
+            />
+            
             <ContactList
               datas={this.state.contacts}
               handleDelete={this.handleDelete}
               handleEdit={this.handleEdit}
             />
+
             {this.renderDeleteAllButton()}
           </div>
         </div>
@@ -120,27 +108,18 @@ class Contact extends React.Component<IUnionProps, IOwnState> {
     }
   };
 
-  handleHideForm = () => {
-    this.setState({
-      showForm: false
-    });
-  };
-
-  handleShowForm = (e: React.MouseEvent) => {
-    e.preventDefault();
-    // this.props.history.push("/contact/new");
-    this.setState({
-      showForm: true
-    });
-  };
 
   loadContacts = () => {
     const dbcontacts = ContactLocalStorageService.fetchContacts();
     this.setState({ contacts: dbcontacts! });
   };
 
-  handleSave = (contact: IContact) => {
-    ContactLocalStorageService.saveContact(contact);
+  handleCreateOrUpdate = (contact: IContact) => {
+    if (contact.id > 0) {
+      ContactLocalStorageService.updateContact(contact.id, contact);
+    } else {
+      ContactLocalStorageService.saveContact(contact);
+    }
     // this.handleHideForm();
     this.loadContacts();
   };
@@ -154,7 +133,7 @@ class Contact extends React.Component<IUnionProps, IOwnState> {
     const contact = ContactLocalStorageService.getById(id);
     if (contact) {
       // console.log(`handleEdit=>contact: ${JSON.stringify(contact)}`)
-      this.setState({ updateContact: contact });
+      this.setState({ editContact: contact });
     }
   };
 
