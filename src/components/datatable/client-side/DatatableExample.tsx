@@ -61,11 +61,10 @@ class DatatableExample extends React.Component<IOwnProps, {}> {
                   { link: "/contact/:id", icon: "pageview" }
                 ]}
               >
-                <DatatableColumn headerTitle="Id" dataField="Id" isKey={true} />
-                <DatatableColumn headerTitle="Parent Id" dataField="ParentId" />
-                <DatatableColumn headerTitle="Type" dataField="Type" />
-                <DatatableColumn headerTitle="Value" dataField="Value" />
-                <DatatableColumn headerTitle="Scoring" dataField="Scoring" />
+                <DatatableColumn headerTitle="#" dataField="id" isKey={true} />
+                <DatatableColumn headerTitle="Name" dataField="name" />
+                <DatatableColumn headerTitle="Email" dataField="email" />
+                <DatatableColumn headerTitle="Date of birth" dataField="dateOfBirth" />
               </Datatable>
             </div>
           </div>
