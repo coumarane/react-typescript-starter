@@ -1,10 +1,13 @@
 import * as React from "react";
-import { Redirect, Route, Switch } from "react-router";
-import Contact from "./components/contact/contact";
+import { Route, Switch } from "react-router";
+import Home from "./pages/home/home";
+import Contact from "./pages/contact/contact";
+import Demo from "./pages/demo/demo";
 
 export const AppRoutes: React.FC = () => (
   <Switch>
-    <Redirect exact={true} from={`/`} to={"/contact"} />
-    <Route exact={true} path={"/contact"} component={Contact} />
+    <Route exact path={"/"} component={Home} />
+    <Route path={"/contact"} component={Contact} />
+    <Route path={"/demo"} component={Demo} />
   </Switch>
 );
