@@ -1,0 +1,202 @@
+﻿Welcome
+******************
+Bonjour tout le monde,
+Bienvenue pour ce meetup malgré. Je vous remercie d’être présent et de m’accorder vos quelques minutes précieux.
+J’espère que vous êtes tous installés confortablement. Les personnes qui suit ce meetup en distance, vérifiez la connexion Internet, la vidéo et son etc…
+
+
+
+Meetup – Reactjs
+*****************
+Avant de commencer, je voudrais savoir combien de personnes connaît React????
+Et Angular? Qu’est ce qui vous intéresse en React.
+Ok, je me présente je suis Coumarane COUPPANE développeur FullStack, j’interviens sur une mission en React chez SG à la Défense.
+Je voudrais partager mes expériences avec vous. J’ai un an d’expérience en React. Avant j’avais travaillé beaucoup en Angularjs, Angular 2, 4. 
+C’est parti.
+
+
+Sujets abordés :
+****************
+Les sujets que j’ai choisi à vous sont:
+- C’est quoi React: je vous expliquerai c’est quoi React et faire une comparaison avec quelques autres Framework du marché, ensuite on regardera un peu de stats pour avoir une idée de la place du React sur le marché par rapport aux autres Framework.
+- On aborderai rapidement les nouvelles fonctionnalités javascript qui sont essentielles pour le développement du React.
+- Les outils que vous avez besoin pour le développement d’application en React.
+- On verra les différents type de composants React et comment les implémenter
+- Les explications sur les mots techniques comme JSX,  Virtual DOM, Props, State ….
+- Pour finir, j’ai préparé un démo que je vous présenterai et je vous expliquerai en détail les différents points comme la structure du projet, les scripts run, build etc…
+
+
+C’est quoi Reactjs?
+***********************
+Vous avez sûrement entendu parlé et pour ceux qui ne connaissent pas bien React, voici la définition courte du React.
+
+React est une librairie javascript facebook en open source. Il permet de construire des interfaces utilisateur dynamique qu’on appelle des composants. 
+Dans React tout est composant. Je vous expliquerai le concept du composant dans la partie « Composant »
+
+React utilise par défaut le langage javascript. React prend en charge le Typescript. Typescript est langage orienté Object développé par Microsoft. C’est un langage typé permettant de trouver les bugs lors de la compilation et possède auto-complétions.
+
+Il gère uniquement la vue du modèle MVC (Model View Controller) contraiement à Angular qui est un framework MVC ou MVVM (Model View ViewModel). 
+React par défaut utilise le langage javascript et la norme ECMAScript 6 (ES6 ou javascript 2015), on peut utiliser Typescript à la place si on veut.
+
+Il est unidirectionnel (ou one way-binding): c’est-à-dire que la communication est possible que dans un sens. Le parent peut envoyer son état à ses enfants via « read-only props » et les enfants ne peut modifié l’état du parent que par une méthode callback. L’angular par exemple utilise two-way binding. Dans la section « Component Communication » je vous expliquerai comment échanger les messages entre parent/enfant et enfant/parent.
+
+Server Side Rendering (SSR): qu’est ce cela signifie concrètement le contenu html est gérer par le serveur à chaque fois qu’on change de page. Le Single Page Application(SPA) quant lui est générée par le navigateur. Mais ceci dit vous pouvez très bien utilisé React pour une app SPA. Le SSR permet d’optimiser le SEO (Search Engine Optimazation), pour le référencement du site.
+
+JSX qui est une extension React pour écrire du code combiné javascript et html afin de créer les composants React.
+On verra plus en détail dans la section dédiée.
+
+Virtual DOM: est une copie du DOM réelle dans lequel React exécute l’algorithme « Diffing » pour comparer le DOM Virtual avec le DOM Virtual modifé, puis mets à jour le DOM réelle.
+Section dédié.
+
+React c’est aussi le développement des application mobile avec React Native.
+
+
+Comparaison & stats des autres frameworks
+*****************************************
+Angular: La migration des différents version Angular a été catastrophique au début mais avec la version d’Angular 7 ou 8, le Framework commence à se stabiliser. 
+Angular est moins performant comparé à React. Plus lourd et l’apprentissage prend beaucoup de temps.
+
+
+Qui utilise Reactjs?
+***************************
+Cela prouve la stabilité et la performance de l’appli
+
+
+Nouvelles fonctionnalités Javascript (ES6)
+********************************************
+Les nouvelles fonctionnalités du javascript (es6 ou ECMAScript 6), sont nombreux et on verra juste les essentielles.
+ECMAScript (European Computer Manufacturers Association): est un standard crée en 1997 pour tous les languages script. (chaque navigateur a son propre script => javascript de nestscape / jscript d’Internet explorer / etc…) => par exemple Internet Explorer 11 ne supporte pas ECMAScript
+
+import/export: importer des fonctions, classes, ou namespaces depuis un autre module si le module est exportable.
+Pour rendre exportable on utilise l’instruction « export ».
+
+Classes & inheritance: nous pouvons développer un langage orienté objet en javascript
+
+Constants, let: les variables constants ne sont immutable et les variable let sont mutables
+
+String interpolation: est la nouvelle façon d’écrire le varibale dans une template string
+
+Property shorthands: 
+
+Rest parameter & Spread operators: voir démo
+
+Object & array destructuring: voir démo
+
+Arrow function: voir la démo
+
+Promises: sert à faire des traitements asynchrone
+
+
+Outils de développement
+***********************
+Nodejs: c’est le javascript runtime côté serveur qui est basé sur le moteur V8 (google chrome)
+
+Create-React-App est équivalent de l’outil Angular « @angular/cli »
+
+Git: servira pour gérer les versions des packages React
+
+Vous pouvez utiliser votre éditeur favorite pour le développer l’application React. Vs code est plus répandu et est maintenu par Microsoft.
+
+Babel: est un compilateur du javascript (ECMAScript 6) à une version inférieure pour rendre compatible le script sur tous les navigateurs web.
+
+Webpack: est un module de gestionnaire de package. Il peut par exemple rassembler tous les fichiers (javscript, html, css, images tec..) code en un seul fichier afin d’optimiser le poids du code source.
+
+
+
+Composants
+***********
+Composant: qu’est ce qu’un composant => un composant pour vous donner une idée est un élément graphique qui est affiché sur le navigateur web. 
+Div, image, bouton, formulaire, etc…
+
+On peut découper l’interface utilisateur en plusieurs composant indépendants et réutilisable (voir l’image)
+
+Tout composant peut avoir des attributs propriétés ce qu’on appelle les « props » et les props sont en lecture seule. 
+Seule un composant de classe peut avoir un état et un cycle de vie qu’on verra à la suite.
+
+Le composant retourne toujours des éléments React à afficher à l’écran.
+
+Les composants peuvent référencer d’autres composants
+
+
+
+Virtual DOM
+***********
+DOM: en gros c’est la représentation du document HTML. 
+DOM possède une API pour manipuler le document HTML (document.getelementbyId, document.createElement, etc…)
+Jquery a rendu compatiblité cross browser
+La manipulation des DOM pour la mise à jour sur des nombres éléments à chaque seconde devient coûteuse.
+
+Virtual DOM: le DOM Virtual a été créée pour résoudre ce problème. Virtual n’est pas une spécification mais une nouvelle d’intérragir avec le DOM.
+Le DOM Virtual est une copie du DOM original. React travaille sur le Virtual DOM pour manipuler et mise à jour sans passer par les APIs DOM.
+Une fois la mise à jour faite sur le DOM Virtual React mets à jour le DOM original.
+A chaque mise à jour du state du component la méthode « render » est appelé et cette méthode fait un « diffing » entre le DOM Virtual et le DOM Modifié. Cette algorithme travaille sur la notation Big O(n). Le diffing de chaque component fournit les instructions sur la mise à jour du DOM. 
+Une fois la comparaison terminé « ReactDOM.render() » met à jour le DOM original. React en travaillant sur le Virtual DOM nous offre une meilleure performance.
+
+Utilisez l’outil “DevTool” pour voir les changements
+
+
+
+Props & State
+*************
+Props: sont propriétés du composant, les propriétés sont des attributs qu’on passe à un composant. Il est en lecture seule.
+Lorsque vous utilisez un composant enfant dans un composant parent on peut passer l’état (state) du parent à l’enfant en écriture seule.
+
+State: l’état du composant, et chaque fois que le state est modifé, react appelle la méthode render(), cette méthode vérifie compare les deux arbres (DOM Virtual et DOM Virtual modifié).
+L’initiation se fait uniquement dans le constructeur.
+Pour mettre à jour le state il faut utiliser la méthode « this.setState({message: ‘Meetup react started…’}) »
+
+
+Cycle de vie
+***************
+Nous avons 3 importantes phases et chaque est décomposé en plus étapes. 
+
+Regardons par exemple le cycle de vie  « Mountig », le constructeur du composant est appelé en premier pour initialiser le composant.
+La méthode « getDeriveStateFromProps » est appelé avant la méthode « render() », cette méthode permet de mettre à jour le state du composant en fonction des props reçues.
+La méthode « render() » est appelé, c’est cette méthode qui s’occupe de mettre à jour l’interface utilisateur en faisant un « diffing ».
+La méthode « componentDidMount » est appelé après le « render() » et dans cette méthode vous pouvez effectuer des opérations comme par exemple appeler un webservice pour mettre à jour le rendu.
+
+
+À chaque mise à jour du « state », la méthode « render() » est appelée. 
+Cette méthode utilise le DOM Virtual qui est une représentation interne du DOM réel. 
+
+
+
+Communication entre composants
+*********************************
+Il y a différents plusieurs manières de faire communiquer les composants entre eux.
+On se concentre en particulier sur les deux types (Parent/ child et child/parent)
+
+Parent to child: la communication se fait via les « props ». Parent envoie 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

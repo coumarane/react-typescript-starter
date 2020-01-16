@@ -7,13 +7,15 @@ interface IOwnProps {
 }
 
 const Child: React.FunctionComponent<IOwnProps> = props => {
-  const handleContactChange = () => {
+  const handleContactChange = (e: React.MouseEvent) => {
+    e.preventDefault()
     const contactModified: IContact = {
       id: 2,
       name: "Kumar",
       email: "coumarane.couppane@devoteam.com",
       dateOfBirth: "00/00/0000"
     };
+    console.log(`contactModified: ${JSON.stringify(contactModified)}`)
     props.sendNewContact(contactModified);
   };
 
@@ -21,7 +23,7 @@ const Child: React.FunctionComponent<IOwnProps> = props => {
     <>
       <p>
         Contact edited:<br />
-        <button onClick={handleContactChange}>New contact</button>
+        <button onClick={handleContactChange}>Update parent state</button>
       </p>
     </>
   );
@@ -87,6 +89,13 @@ class ChildToParent extends React.Component<{}, IOwnState> {
     });
   };
 
+  // method handle update from child
+  modifiedContact = (contact: IContact) =>  {
+    this.setState({
+      contact
+    });
+  }
+
   getContactFromChild = (contact: IContact) => {
     console.log(`child contact: ${contact}`)
     this.setState({
@@ -103,9 +112,9 @@ class ChildToParent extends React.Component<{}, IOwnState> {
             <p>
               <b>Communication</b>
             </p>
-            <p>
-              <Child sendNewContact={this.getContact} />
-            </p>
+            <div>
+              <Child sendNewContact={this.modifiedContact} />
+            </div>
             {contact && contact.id > 0 && <DisplayContact contact={contact} />}
             {contact.id === 0 && <div>Contact is empty :-) </div>}
           </div>
