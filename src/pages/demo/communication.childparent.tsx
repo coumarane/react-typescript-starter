@@ -110,7 +110,7 @@ class ChildToParent extends React.Component<{}, IOwnState> {
         <div className="card">
           <div className="card-body">
             <p>
-              <b>Communication</b>
+              <b>Child to parent Communication</b>
             </p>
             <div>
               <Child sendNewContact={this.modifiedContact} />

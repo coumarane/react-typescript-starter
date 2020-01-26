@@ -5,9 +5,9 @@ interface IDispProps {
 }
 
 class IAmPureComponent extends React.PureComponent<IDispProps> {
-//   shouldComponentUpdate(nextProps: IDispProps, nextState: {}) {
-//     return this.props.message !== nextProps.message;
-//   }
+  // shouldComponentUpdate(nextProps: IDispProps, nextState: {}) {
+  //   return this.props.message !== nextProps.message;
+  // }
 
   render() {
     console.log(`IAmPureComponent...`);

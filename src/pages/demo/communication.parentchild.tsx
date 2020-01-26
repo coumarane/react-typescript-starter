@@ -69,7 +69,7 @@ class ParentToChild extends React.Component<{}, IOwnState> {
         <div className="card">
           <div className="card-body">
             <p>
-              <b>Communication</b>
+              <b> Parent to child Communication</b>
             </p>
             {contact && contact.id > 0 && <DisplayContact contact={contact} />}
             {contact.id === 0 && <div>Contact is empty :-) </div>}

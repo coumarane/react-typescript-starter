@@ -31,9 +31,13 @@ class Contact extends React.Component<IUnionProps, IOwnState> {
     };
   }
 
+
+
   componentDidMount() {
-    this.loadContacts();
+    this.loadContacts(); // server back end qui récupère api rest
   }
+
+  
 
   render() {
     return (
