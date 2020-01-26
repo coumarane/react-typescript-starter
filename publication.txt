@@ -1,0 +1,44 @@
+- Principe test unit 3A (Arrange, Act, Assert)
+- Python/Django framework
+- Kotlin premier pas
+- Scala initiation
+- Rugby on Rails framework
+- Angular Material Design
+- Bootstrap bien maîtriser le css
+- Docker containérisation
+- Kubernetes (la solution d'orchestration)
+- Chiffrement RSA
+- Programmation quantique
+- Le Q# (ou Q Sharp) langage de programmation microsoft pour simuler des algorithmes quantiques
+- Hadoop sur raspberry pi (comment construire plusieurs slave)
+- Arduino kit de démarrage
+- RabbitMQ: comment mettre en place + démo
+- Comparatif RabbitMQ / Kafka
+- Méthode agile (SCRUM)
+- Sécuriser une API avec OAuth 2.0
+- TeamCity: build management
+- Radis: base de donnée pour la gestion de cache
+- Anaconda: pour la machine learning
+- Big data: solution Big Data proposé par Microsoft 
+- Les outils d'analyse de données BI (Business Intelligence)
+- Analysez de code en temps réel avec Roslyn
+- DevOps: Pour quoi ce terme est en vogue
+- Elasticsearch:  moteur de recherche distribué et multi-entité
+- Kibana: analyse de logs
+- TensorFlow vs Keras: lequel choisir
+- Test unit react avec jest
+- Test unit angular avec jasmine
+- Nunit C#: best practice
+- Mocking avec le framework « Moq » en .NET
+- C# validation des données avec Fluent Validation
+- C# Automapper (dto à entity et entity à dto)
+- Polly: Retry Pattern pour développer des applications résilientes
+- log4net: gestion de logs
+- Serilog: gestion de logs simplifiés
+- Présentation de la librairie Highcharts + démo
+- Microsoft IoT sur Raspberry pi 
+- Entityframework: best practice
+- NHibernate: gestion de base de donnée avec C#
+- 10 Outils pour faire vos prototypes web et mobile
+- Cas d'utilisation middleware api rest C#
+- Gestion d'application multi-langue en React ou Angular
