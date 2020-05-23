@@ -1,0 +1,7 @@
+node_modules
+build
+.dockerignore
+Dockerfile
+.Initiation à Reactjs.docx
+.Initiation à Reactjs.pdf
+.Initiation à Reactjs.pptx
