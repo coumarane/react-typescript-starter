@@ -277,3 +277,32 @@ usefull links :
 https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
 
 https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
+
+
+## Test Unit
+
+npm i --save-dev types/jest ts-jest jest
+npm i --save-dev enzyme enzyme-adapter-react-16 @types/enzyme enzyme-to-json 
+npm i --save-dev react-test-renderer 
+create a a jest.config.js in root folder and add the following code :
+```
+module.exports = {
+  roots: ["<rootDir>/src"],
+  transform: {
+    "^.+\\.tsx?$": "ts-jest",
+  },
+  testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+};
+```
+
+https://github.com/basarat/typescript-book/blob/master/docs/testing/jest.md#step-2-configure-jest
+
+Configure Enzyme:
+create setupTests.js in src folder and add the below code:
+```
+import { configure } from 'enzyme';
+import * as Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+```

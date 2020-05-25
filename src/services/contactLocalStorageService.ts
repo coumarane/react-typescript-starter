@@ -24,7 +24,7 @@ class ContactLocalStorage {
   //#endregion
 
   //#region command
-  saveContact = (contact: IContact) => {
+  saveContact = (contact: IContact): number => {
     let auto_id: number = 1;
 
     // console.log(`localStorageService::saveContact=>contact ${JSON.stringify(contact)}`);
@@ -37,6 +37,7 @@ class ContactLocalStorage {
     contact.id = auto_id;
     contacts.push(contact);
     this.saveContacts(contacts)
+    return contact.id;
   };
 
   updateContact = (id: number, contact: IContact) => {
